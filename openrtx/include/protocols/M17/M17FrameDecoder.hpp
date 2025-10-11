@@ -101,6 +101,11 @@ public:
         return viterbiBitErrorCount;
     }
 
+    void setViterbiBitErrorThreshold(uint16_t threshold)
+    {
+        viterbiBitErrorThreshold = threshold;
+    }
+
 private:
 
     /**
@@ -147,11 +152,10 @@ private:
     M17StreamFrame    streamFrame;      ///< Latest stream dat frame received.
     M17HardViterbi    viterbi;          ///< Viterbi decoder.
     uint16_t          viterbiBitErrorCount;
+    uint16_t          viterbiBitErrorThreshold;
 
     ///< Maximum allowed hamming distance when determining the frame type.
     static constexpr uint8_t MAX_SYNC_HAMM_DISTANCE = 4;
-
-    static constexpr uint16_t VITERBI_BIT_ERROR_THRESHOLD = 20;
 };
 
 }      // namespace M17

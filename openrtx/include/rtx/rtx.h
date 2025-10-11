@@ -67,6 +67,7 @@ typedef struct
     char     M17_link[10];             /**  M17 LSF traffic originator */
     char     M17_refl[10];             /**  M17 LSF reflector module   */
     uint16_t viterbiBitErrorCount;     /**  M17 Viterbi bit error count*/
+    uint16_t viterbiBitErrorThreshold; /** M17 Viterbi bit error threshold */
 }
 rtxStatus_t;
 

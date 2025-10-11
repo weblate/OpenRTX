@@ -444,6 +444,10 @@ int _ui_getM17ValueName(char *buf, uint8_t max_len, uint8_t index)
                                                            currentLanguage->on :
                                                            currentLanguage->off);
             break;
+
+        case M17_VITERBI_BIT_ERROR_THRESHOLD:
+            sniprintf(buf, max_len, "%d", last_state.settings.m17_viterbi_bit_error_threshold);
+            break;
     }
 
     return 0;

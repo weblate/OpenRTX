@@ -156,11 +156,11 @@ void M17FrameDecoder::decodeStream(const std::array< uint8_t, 46 >& data)
     viterbiBitErrorCount = viterbi.decodePunctured(punctured, tmp, DATA_PUNCTURE);
 
     // If Viterbi bit error is too high, skip copying the frame altogether
-    if(viterbiBitErrorCount < VITERBI_BIT_ERROR_THRESHOLD)
+    if(viterbiBitErrorCount < viterbiBitErrorThreshold)
     {
         memcpy(&streamFrame.data, tmp.data(), tmp.size());
     } else {
-        // printf("M17: high Viterbi bit error %u\n", viterbiBitErrorCount);
+        // printf("M17: high Viterbi bit error %u vs %u\n", viterbiBitErrorCount, viterbiBitErrorThreshold);
     }
 }
 

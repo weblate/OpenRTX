@@ -102,6 +102,7 @@ void OpMode_M17::update(rtxStatus_t *const status, const bool newCfg)
     invertTxPhase = true;
     invertRxPhase = true;
     #endif
+    decoder.setViterbiBitErrorThreshold(status->viterbiBitErrorThreshold);
 
     // Main FSM logic
     switch(status->opStatus)
@@ -200,7 +201,7 @@ void OpMode_M17::rxState(rtxStatus_t *const status)
             auto  type    = decoder.decodeFrame(frame);
             auto  lsf     = decoder.getLsf();
             status->viterbiBitErrorCount = decoder.getViterbiBitErrorCount();
-            
+
             status->lsfOk = lsf.valid();
 
             if(status->lsfOk)
