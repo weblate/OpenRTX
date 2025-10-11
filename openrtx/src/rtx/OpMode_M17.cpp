@@ -199,6 +199,8 @@ void OpMode_M17::rxState(rtxStatus_t *const status)
             auto& frame   = demodulator.getFrame();
             auto  type    = decoder.decodeFrame(frame);
             auto  lsf     = decoder.getLsf();
+            status->viterbiBitErrorCount = decoder.getViterbiBitErrorCount();
+            
             status->lsfOk = lsf.valid();
 
             if(status->lsfOk)

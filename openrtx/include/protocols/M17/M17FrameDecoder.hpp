@@ -96,6 +96,11 @@ public:
         return streamFrame;
     }
 
+    uint16_t getViterbiBitErrorCount() const
+    {
+        return viterbiBitErrorCount;
+    }
+
 private:
 
     /**
@@ -141,11 +146,12 @@ private:
     M17LinkSetupFrame lsfFromLich;      ///< LSF assembled from LICH segments.
     M17StreamFrame    streamFrame;      ///< Latest stream dat frame received.
     M17HardViterbi    viterbi;          ///< Viterbi decoder.
+    uint16_t          viterbiBitErrorCount;
 
     ///< Maximum allowed hamming distance when determining the frame type.
     static constexpr uint8_t MAX_SYNC_HAMM_DISTANCE = 4;
 
-    static constexpr uint16_t VITERBI_BIT_ERROR_THRESHOLD = 30;
+    static constexpr uint16_t VITERBI_BIT_ERROR_THRESHOLD = 20;
 };
 
 }      // namespace M17

@@ -171,14 +171,22 @@ void _ui_drawModeInfo(ui_state_t* ui_state)
                 }
 
                 // Reflector (if present)
-                if(rtxStatus.M17_refl[0] != '\0')
-                {
-                    gfx_drawSymbol(layout.line3_pos, layout.line4_symbol_size, TEXT_ALIGN_LEFT,
-                                   color_white, SYMBOL_NETWORK);
+                // if(rtxStatus.M17_refl[0] != '\0')
+                // {
+                //     gfx_drawSymbol(layout.line3_pos, layout.line4_symbol_size, TEXT_ALIGN_LEFT,
+                //                    color_white, SYMBOL_NETWORK);
 
-                    gfx_print(layout.line3_pos, layout.line2_font, TEXT_ALIGN_CENTER,
-                              color_white, "%s", rtxStatus.M17_refl);
-                }
+                //     gfx_print(layout.line3_pos, layout.line2_font, TEXT_ALIGN_CENTER,
+                //               color_white, "%s", rtxStatus.M17_refl);
+                // }
+                uint32_t bitErr = (uint32_t)rtxStatus.viterbiBitErrorCount;
+                /* hundredths of percent = bitErr * 10000 / 128 */
+                uint32_t hundredths = (bitErr * 10000u + 64u) / 128u; /* +64 for rounding */
+                uint32_t whole = hundredths / 100u;
+                uint32_t frac  = hundredths % 100u;
+                gfx_print(layout.line3_pos, layout.line2_font, TEXT_ALIGN_CENTER,
+                            color_white, "BER: %lu.%02lu%%",
+                            (unsigned long)whole, (unsigned long)frac);
             }
             else
             {
