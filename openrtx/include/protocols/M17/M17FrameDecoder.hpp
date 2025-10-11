@@ -144,6 +144,8 @@ private:
 
     ///< Maximum allowed hamming distance when determining the frame type.
     static constexpr uint8_t MAX_SYNC_HAMM_DISTANCE = 4;
+
+    static constexpr uint32_t VITERBI_BIT_ERROR_THRESHOLD = 30;
 };
 
 }      // namespace M17
