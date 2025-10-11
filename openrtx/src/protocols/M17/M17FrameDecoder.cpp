@@ -159,9 +159,9 @@ void M17FrameDecoder::decodeStream(const std::array< uint8_t, 46 >& data)
     if(bitErrorCount < VITERBI_BIT_ERROR_THRESHOLD)
     {
         memcpy(&streamFrame.data, tmp.data(), tmp.size());
-    } else {
-        printf("M17: high Viterbi bit error %u\n", bitErrorCount);
-    }
+    }// else {
+    //     printf("M17: high Viterbi bit error %u\n", bitErrorCount);
+    // }
 }
 
 bool M17FrameDecoder::decodeLich(std::array < uint8_t, 6 >& segment,
