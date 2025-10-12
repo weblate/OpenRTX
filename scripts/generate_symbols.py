@@ -60,7 +60,26 @@ def svgToBytes(filename, height):
 
 
 first_ascii = 32  # Start at ascii d32 which is " " per https://www.rapidtables.com/code/text/ascii-table.html
-dont_edit_banner = "// This is a generated file, please do not edit it! Use generate_symbols.py\n"
+dont_edit_banner  = "/*\n"
+dont_edit_banner += " * Copyright (C) 2020-2025 OpenRTX Contributors\n"
+dont_edit_banner += " *\n"
+dont_edit_banner += " * This file is part of OpenRTX.\n"
+dont_edit_banner += " *\n"
+dont_edit_banner += " * OpenRTX is free software: you can redistribute it and/or modify\n"
+dont_edit_banner += " * it under the terms of the GNU General Public License as published by\n"
+dont_edit_banner += " * the Free Software Foundation, either version 3 of the License, or\n"
+dont_edit_banner += " * (at your option) any later version.\n"
+dont_edit_banner += " *\n"
+dont_edit_banner += " * OpenRTX is distributed in the hope that it will be useful,\n"
+dont_edit_banner += " * but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+dont_edit_banner += " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+dont_edit_banner += " * GNU General Public License for more details.\n"
+dont_edit_banner += " *\n"
+dont_edit_banner += " * You should have received a copy of the GNU General Public License\n"
+dont_edit_banner += " * along with this program.  If not, see <https://www.gnu.org/licenses/>.\n"
+dont_edit_banner += " */\n"
+dont_edit_banner += "\n"
+dont_edit_banner += "// This is a generated file, please do not edit it! Use generate_symbols.py\n"
 
 class FontDefinition:
     scalar = 1.6  # this number is used to roughly convert from pt to px
